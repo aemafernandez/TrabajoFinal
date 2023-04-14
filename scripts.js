@@ -1,5 +1,6 @@
 let contacto = document.getElementById("contacto"); //div de contacto
 let cuerpo = document.getElementById("cuerpo");
+let blog = document.getElementById("blog");
 window.addEventListener("load",inicio)
 
 let btnContacto = document.getElementById("btn-contacto"); //boton/link del header
@@ -24,6 +25,12 @@ function mostrarContacto(){
     controlNosotros = false
 }
  function mostrarCuerpo(){
+    contacto.style.display = "none";
+    cuerpo.style.display = "block";
+    controlContacto = false
+    controlNosotros = true
+ }
+ function mostrarblog(){
     contacto.style.display = "none";
     cuerpo.style.display = "block";
     controlContacto = false

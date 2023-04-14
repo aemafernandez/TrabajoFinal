@@ -197,6 +197,10 @@
           </div>
         </form>
       </div>
+      <!-- COMETNARIOS CLIENTES -->
+      <div id="blog" class="container-fluid">
+        COMENTARIOS DE CLIENTES
+              </div>
     </main>
 
     <!-- FOOTER -->
@@ -239,6 +243,32 @@
     </div>
 
     <script src="scripts.js"></script>
+     <!-- API -->
+     <script>
+      const blog = document.querySelector("#blog");
+
+      const comentarios = fetch("https://dummyjson.com/comments?limit=5");
+
+      comentarios
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data.comments)
+
+          for (const elemento of data.comments) {
+            // itero el array data con un for of que crea
+            // un objeto temporal de nombre elemento
+            console.log(data);
+            const nuevoDiv = document.createElement("div"); //creo un nuevo div para contener el resto del codigo
+            nuevoDiv.innerHTML = '          
+            <h2>Cliente: ${elemento.user.username} </h2>
+              <p><em>: ${elemento.body}<em></p>
+              ';
+           blog.appendChild(nuevoDiv); //inserto nuevo DIV
+
+          }
+
+        });
+    </script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
